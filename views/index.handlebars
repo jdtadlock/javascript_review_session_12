@@ -1,0 +1,25 @@
+<a href="/contact">Contact Page</a>
+
+<form action="/groups" method="POST">
+  <h4>Create Group</h4>
+  <input type="text" name="name" placeholder="Type the name of the group">
+  <button>Submit</button>
+</form>
+
+
+<h1>Groups</h1>
+
+{{#each group_data}}
+  <div>
+    <h3>{{name}}</h3>
+    <form action="/users/{{id}}" method="POST">
+      <h4>Create User</h4>
+      <input type="text" name="email" placeholder="Type your email">
+      <input type="password" name="password" placeholder="Type your password">
+      <button>Submit</button>
+    </form>
+    {{#each users}}
+      <h4>{{email}}</h4>
+    {{/each}}
+  </div>
+{{/each}}
